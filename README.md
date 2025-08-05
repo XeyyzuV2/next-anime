@@ -1,58 +1,87 @@
-<div align="center">
-    <img src="https://res.cloudinary.com/annnn/image/upload/v1683898263/logo_id1pyr.png" />
-</div>
+# Next Anime
 
-<p align="center"><strong>Next Anime is a free anime watch website built using Consumet API</strong></p>
+Selamat datang di Next Anime, sebuah platform streaming anime gratis yang dibangun dengan teknologi web modern. Proyek ini berfungsi sebagai situs web kaya fitur di mana pengguna dapat menemukan, menonton, dan melacak anime favorit mereka.
 
-## Video Demo
+Aplikasi ini dibuat menggunakan Next.js dan mengambil data dari [Consumet API](https://github.com/consumet/api).
 
-Video link: [Click Here](http://www.youtube.com/watch?v=mJNpHoj0dkg)
+<!-- Ganti dengan URL screenshot proyek Anda -->
+<!-- ![Screenshot](https://i.imgur.com/your-screenshot.png) -->
 
-## Live demo
+## ✨ Fitur Utama
 
-Official website: [https://nqafe.vercel.app/](https://nqafe.vercel.app/)
+- **Pencarian & Filter**: Cari anime berdasarkan judul atau filter berdasarkan genre.
+- **Detail Anime**: Lihat informasi lengkap tentang anime, termasuk sinopsis, karakter, dan relasi.
+- **Streaming Video**: Tonton episode anime langsung di dalam aplikasi dengan pemutar video terintegrasi.
+- **Daftar Tontonan Pribadi**: Pengguna dapat masuk dan menambahkan anime ke daftar tontonan pribadi mereka.
+- **Sistem Komentar**: Berdiskusi dengan pengguna lain di setiap halaman anime.
+- **Desain Responsif**: Antarmuka yang dioptimalkan untuk desktop dan perangkat seluler.
+- **Pemuatan Cepat**: Dibangun dengan Incremental Static Regeneration (ISR) dari Next.js untuk performa optimal.
 
-## Anime sources
+## 🚀 Teknologi yang Digunakan
 
-From Consumet API  
-You can refer to [https://github.com/consumet/api.consumet.org](https://github.com/consumet/api.consumet.org)
+- **Framework**: [Next.js](https://nextjs.org/) 13 (Pages Router)
+- **Bahasa**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Database & ORM**: [MongoDB](https://www.mongodb.com/) dengan [Prisma](https://www.prisma.io/)
+- **Autentikasi**: [NextAuth.js](https://next-auth.js.org/)
+- **Data Fetching (Client)**: [React Query](https://tanstack.com/query/v3/)
+- **Komponen UI**: [Swiper.js](https://swiperjs.com/), [React Icons](https://react-icons.github.io/react-icons/), [React Hot Toast](https://react-hot-toast.com/)
 
-## Main technology used
+## 🛠️ Panduan Setup Lokal
 
-- Nextjs, React, Typescript, Tailwind
-- Prisma
-- MongoDB
-- Swiper (slider)
-- Next-Auth
-- React Query
-- [Player](https://www.npmjs.com/package/vnetwork-player)
+Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah berikut:
 
-## Features
+1.  **Clone Repositori**
+    ```bash
+    git clone https://github.com/username/repo-name.git
+    cd repo-name
+    ```
 
-- Watch anime by episode support iframe and custom player
-- Advanced anime search by keyword, season, format, status, genre,...
-- Sign in via google or github using next auth
-- Customize video player adjust playback speed, video quality, subtitles
-- Save anime to your lists
-- Infinity page scrolling using react-intersection-observer
-- Support ssr, seo friendly by nextjs
-- Comment on anime while watching
+2.  **Install Dependensi**
+    ```bash
+    npm install
+    ```
 
-## Screenshots, Preview
+3.  **Setup Variabel Lingkungan**
+    Buat file bernama `.env` di root proyek dan tambahkan variabel berikut.
+    ```env
+    # URL koneksi ke database MongoDB Anda
+    DATABASE_URL="mongodb+srv://user:password@cluster.mongodb.net/database_name?retryWrites=true&w=majority"
 
-![Screenshot 1](https://res.cloudinary.com/annnn/image/upload/v1683903029/localhost_3000__2_sxk4pr.png)
-![Screenshot 2](https://res.cloudinary.com/annnn/image/upload/v1683903024/localhost_3000__4_uea2iw.png)
+    # Kunci rahasia untuk NextAuth.js (buat kunci acak)
+    # Anda bisa membuatnya dengan `openssl rand -base64 32` di terminal
+    NEXTAUTH_SECRET="your-super-secret-key"
+    NEXTAUTH_URL="http://localhost:4099"
 
-## Star History
+    # Konfigurasi Provider OAuth (Contoh: Google)
+    GOOGLE_CLIENT_ID="your-google-client-id"
+    GOOGLE_CLIENT_SECRET="your-google-client-secret"
+    ```
 
-<a href="https://star-history.com/#an678-mhg/next-anime&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=an678-mhg/next-anime&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=an678-mhg/next-anime&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=an678-mhg/next-anime&type=Date" />
- </picture>
-</a>
+4.  **Generate Prisma Client**
+    Skrip `postinstall` seharusnya sudah menjalankan ini, tetapi jika Anda mengubah `schema.prisma`, jalankan perintah ini secara manual.
+    ```bash
+    npx prisma generate
+    ```
 
-## Summary
+5.  **Jalankan Server Development**
+    ```bash
+    npm run dev
+    ```
+    Aplikasi akan berjalan di [http://localhost:4099](http://localhost:4099).
 
-### 👉 If you like this project, give it a star ✨ and share 👨🏻‍💻 it to your friends 👈
+## 🚀 Panduan Deployment
+
+Proyek ini dioptimalkan untuk deployment di [Vercel](https://vercel.com/).
+
+1.  **Push ke Repositori Git** (GitHub, GitLab, Bitbucket).
+2.  **Impor Proyek di Vercel**: Hubungkan akun Git Anda ke Vercel dan impor repositori.
+3.  **Konfigurasi Proyek**: Vercel akan secara otomatis mendeteksi bahwa ini adalah proyek Next.js. Pengaturan build default seharusnya sudah cukup.
+4.  **Tambahkan Environment Variables**: Buka pengaturan proyek di Vercel, navigasi ke **Settings -> Environment Variables**, dan tambahkan semua variabel yang ada di file `.env` Anda.
+5.  **Deploy**: Vercel akan memulai proses build dan deployment secara otomatis setiap kali Anda melakukan push ke branch utama.
+
+## 📝 Catatan Tambahan
+
+- **Dependensi Eksternal**: Ketersediaan data anime sangat bergantung pada **Consumet API**. Jika API tersebut tidak aktif, beberapa bagian dari aplikasi mungkin tidak berfungsi.
+- **Strategi Rendering**: Proyek ini menggunakan **Incremental Static Regeneration (ISR)** (`fallback: 'blocking'`). Ini berarti halaman detail anime akan dibuat saat pertama kali diakses dan kemudian di-cache untuk performa yang lebih baik. Hal ini normal dan bukan merupakan error.
+- **Image**: Aplikasi ini tidak menggunakan `next/image` untuk gambar eksternal, melainkan `react-lazy-load-image-component` yang merender tag `<img>` standar. Ini menghindari keharusan untuk mengonfigurasi domain gambar di `next.config.js`.
