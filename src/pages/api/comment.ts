@@ -1,4 +1,5 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
+import { validateApiKey } from "@/src/middleware/validateApiKey";
 import prisma from "../../lib/prisma";
 import { CreateCommentBody } from "@/src/types/comment";
 import { getServerSession, Session } from "next-auth";
@@ -134,4 +135,4 @@ const handler: NextApiHandler = async (
   }
 };
 
-export default handler;
+export default validateApiKey(handler);

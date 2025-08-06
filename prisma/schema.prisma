@@ -89,3 +89,15 @@ model Like {
   commentId String
   userId    String
 }
+
+model ApiKey {
+  id        String   @id @default(cuid()) @map("_id")
+  value     String   @unique
+  tier      String // "free" | "pro" | "enterprise"
+  owner     String?
+  limit     Int
+  usage     Int      @default(0)
+  resetAt   BigInt
+  duration  BigInt
+  createdAt DateTime @default(now())
+}
